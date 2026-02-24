@@ -3,6 +3,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     crane.url = "github:ipetkov/crane";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs =
@@ -11,6 +12,7 @@
       nixpkgs,
       flake-utils,
       crane,
+      treefmt-nix,
     }:
     flake-utils.lib.eachDefaultSystem (
       system:
@@ -18,6 +20,7 @@
         pkgs = import nixpkgs {
           inherit system;
         };
+        treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
         craneLib = crane.mkLib pkgs;
         src = craneLib.cleanCargoSource ./.;
         libs = [ ];
@@ -55,7 +58,11 @@
           };
         };
 
-        formatter = pkgs.nixfmt-tree;
+        formatter = treefmtEval.config.build.wrapper;
+
+        checks = {
+          formatting = treefmtEval.config.build.check self;
+        };
       }
     );
 }
