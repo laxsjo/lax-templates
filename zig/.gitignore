@@ -1,0 +1,5 @@
+/.direnv
+
+# Build files
+/.zig-cache
+/zig-out
