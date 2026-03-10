@@ -11,6 +11,10 @@
         path = ./zig;
         description = "Zig template, using custom build program";
       };
+      generic = {
+        path = ./generic;
+        description = "Generic template, containing an empty dev shell";
+      };
     };
   };
 }
