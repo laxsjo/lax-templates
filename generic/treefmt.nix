@@ -8,6 +8,10 @@
   # Formats *.json, etc.
   programs.prettier.enable = true;
 
-  # Files to exclude from formatting.
-  settings.global.excludes = [ ];
+# Files to exclude from formatting.
+  settings.global.excludes = [
+    # This file is formatted by the cspell extension, which would conflict with
+    # prettier.
+    "cspell.json"
+  ];
 }
