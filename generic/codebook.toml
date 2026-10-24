@@ -1,0 +1,7 @@
+dictionaries = [
+    "sv",
+    "en_us",
+]
+words = [
+    "treefmt",
+]

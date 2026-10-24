@@ -1,0 +1,10 @@
+dictionaries = [
+    "sv",
+    "en_us",
+]
+words = [
+    "cachix",
+    "ipetkov",
+    "taplo",
+    "treefmt"
+]
