@@ -3,6 +3,10 @@
 
   outputs = { self }: {
     templates = {
+      course = {
+        path = ./course;
+        description = "Typst template for my KTH courses";
+      };
       generic = {
         path = ./generic;
         description = "Generic template, containing an empty dev shell";

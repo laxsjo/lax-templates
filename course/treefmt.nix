@@ -1,0 +1,19 @@
+{ pkgs, ... }:
+{
+  # Used to find the project root
+  projectRootFile = "flake.nix";
+
+  # Formats *.nix
+  programs.nixfmt.enable = true;
+  # Formats *.json, etc.
+  programs.prettier.enable = true;
+  # Formats .typ
+  programs.typstyle.enable = true;
+
+  # Files to exclude from formatting.
+  settings.global.excludes = [
+    # This file is formatted by the cspell extension, which would conflict with
+    # prettier.
+    "cspell.json"
+  ];
+}
